@@ -140,7 +140,7 @@ if __name__ == '__main__':
     np.save("mid_subset.npy",subset)
 
     # Input directory and configuration file
-    inputDir = '/home/alex/Data/FDS/FixedBurner/'
+    inputDir = './' #'/home/alex/Data/FDS/FixedBurner/'
     fileConfigIn = inputDir+'input_fixed_burner.fds'
     output_file = '~/Src/FdsSkuku/fixed_burner_devc.csv'
 
