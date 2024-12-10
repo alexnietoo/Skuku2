@@ -151,8 +151,20 @@ if __name__ == '__main__':
     act_pixels = np.where((burner.fre_f > 0) | (burner.fre_s > 0))
     args = [(i, j, subset, template, x, y, w, v) for i, j in zip(*act_pixels)]
 
+
+    # Verificar si $SLURM_NTASKS existe
+    if 'SLURM_NTASKS' in os.environ:
+        # Leer el valor y convertirlo a un entero
+        ntasks = int(os.getenv('SLURM_NTASKS'))
+        print(f"SLURM_NTASKS existe y su valor es: {slurm_ntasks}")
+    else:
+        # Acción alternativa si no existe
+        ntasks = mp.cpu_count()
+        print("SLURM_NTASKS no está definido en las variables de entorno.")
+
+
     # Use multiprocessing to process pixels
-    with mp.Pool(mp.cpu_count()) as pool:
+    with mp.Pool(ntasks) as pool:
         results = pool.map(process_pixel, args)
 
     # Add processed templates to the .fds file
