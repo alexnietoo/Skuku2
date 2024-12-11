@@ -153,10 +153,10 @@ if __name__ == '__main__':
 
 
     # Verificar si $SLURM_NTASKS existe
-    if 'SLURM_NTASKS' in os.environ:
+    if 'ntask' in os.environ:
         # Leer el valor y convertirlo a un entero
-        ntasks = int(os.getenv('SLURM_NTASKS'))
-        print(f"SLURM_NTASKS existe y su valor es: {slurm_ntasks}")
+        ntasks = int(os.getenv('ntask'))
+        print(f"SLURM_NTASKS existe y su valor es: {ntask}")
     else:
         # Acción alternativa si no existe
         ntasks = mp.cpu_count()
