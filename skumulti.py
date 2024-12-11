@@ -151,9 +151,10 @@ if __name__ == '__main__':
     act_pixels = np.where((burner.fre_f > 0) | (burner.fre_s > 0))
     args = [(i, j, subset, template, x, y, w, v) for i, j in zip(*act_pixels)]
 
-
+    sys.exit()
+    
     # Verificar si $SLURM_NTASKS existe
-    if 'ntask' in os.environ:
+    if 'SLURM_NTASKS' in os.environ:
         # Leer el valor y convertirlo a un entero
         ntasks = int(os.getenv('ntask'))
         print(f"SLURM_NTASKS existe y su valor es: {ntasks}")
