@@ -127,7 +127,7 @@ if __name__ == '__main__':
     np.save("mid_subset.npy", subset)
 
     inputDir = './'
-    fileConfigIn = inputDir'input_fixed_burner.fds'
+    fileConfigIn = inputDir+'input_fixed_burner.fds'
     output_csv = '~/Src/FdsSkuku/fixed_burner_devc.csv'
 
     nml = f90nml.read(fileConfigIn)
