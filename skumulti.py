@@ -58,7 +58,7 @@ def process_pixel(args):
         
         i, j, subset, template, x, y, w, v = args
 
-        arrivalT = subset[i, j]['arrivalTime']-515
+        arrivalT = subset[i, j]['arrivalTime']-475
         residenceT = subset[i, j]['residenceTime']
         burningT = subset[i, j]['burningTime']
         fre_f = subset[i, j]['fre_f']
