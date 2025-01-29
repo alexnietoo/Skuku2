@@ -165,7 +165,7 @@ if __name__ == '__main__':
     act_pixels = np.where((burner.fre_f > 0) | (burner.fre_s > 0))
     args = [(i, j, subset, template, x, y, w, v) for i, j in zip(*act_pixels)]
 
-    sys.exit()
+    #sys.exit()
     
     # Verificar si $SLURM_NTASKS existe
     if 'SLURM_NTASKS' in os.environ:
