@@ -26,6 +26,7 @@ w = .5
 v = .1
 Rf_f = .10 #Radioactive fraction of flaming
 Rf_s = .3  #Radioactive fraction of smoldering
+l = 1
 ###########################################
 
 # Function to capitalize lines that start with '&'
