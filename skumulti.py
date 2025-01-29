@@ -102,9 +102,13 @@ def process_pixel(args):
         if HRRPUA_f == 0:
             template_here.ramp_template[1]['t'] = 0
             template_here.ramp_template[2]['t'] = 0
+            template_here.ramp_template[2]['f'] = ramp_f_f
             template_here.ramp_template[3]['t'] = 0
+            template_here.ramp_template[3]['f'] = ramp_f_f
             template_here.ramp_template[4]['t'] = 0
+            template_here.ramp_template[4]['f'] = ramp_s_f
             template_here.ramp_template[5]['t'] = 0
+            template_here.ramp_template[5]['f'] = ramp_s_f
             template_here.ramp_template[6]['t'] = 0 
         else:
             template_here.ramp_template[1]['t'] = arrivalT - w
