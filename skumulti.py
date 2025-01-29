@@ -75,6 +75,7 @@ def process_pixel(args):
 
         if residenceT * dx * dy == 0:
             HRRPUA_f = 0
+
         else:
             HRRPUA_f = round(fre_f/Rf_f * 1.e3 / (residenceT * dx * dy), 10)
 
@@ -98,16 +99,24 @@ def process_pixel(args):
         
         for k in range(7):
             template_here.ramp_template[k]['id'] = ramp_id
-        template_here.ramp_template[1]['t'] = arrivalT - w
-        template_here.ramp_template[2]['t'] = arrivalT
-        template_here.ramp_template[2]['f'] = ramp_f_f
-        template_here.ramp_template[3]['t'] = arrivalT + residenceT
-        template_here.ramp_template[3]['f'] = ramp_f_f
-        template_here.ramp_template[4]['t'] = arrivalT + residenceT + v
-        template_here.ramp_template[4]['f'] = ramp_s_f
-        template_here.ramp_template[5]['t'] = arrivalT + burningT
-        template_here.ramp_template[5]['f'] = ramp_s_f
-        template_here.ramp_template[6]['t'] = arrivalT + burningT + v
+        if HRRPUA_f == 0:
+            template_here.ramp_template[1]['t'] = 0
+            template_here.ramp_template[2]['t'] = 0
+            template_here.ramp_template[3]['t'] = 0
+            template_here.ramp_template[4]['t'] = 0
+            template_here.ramp_template[5]['t'] = 0
+            template_here.ramp_template[6]['t'] = 0 
+        else:
+            template_here.ramp_template[1]['t'] = arrivalT - w
+            template_here.ramp_template[2]['t'] = arrivalT
+            template_here.ramp_template[2]['f'] = ramp_f_f
+            template_here.ramp_template[3]['t'] = arrivalT + residenceT
+            template_here.ramp_template[3]['f'] = ramp_f_f
+            template_here.ramp_template[4]['t'] = arrivalT + residenceT + v
+            template_here.ramp_template[4]['f'] = ramp_s_f
+            template_here.ramp_template[5]['t'] = arrivalT + burningT
+            template_here.ramp_template[5]['f'] = ramp_s_f
+            template_here.ramp_template[6]['t'] = arrivalT + burningT + v
 
         template_here.vent_template['xb'] = np.round(np.array([i, i + 1, j, j + 1, 0.0, 0.0]), 3)
         template_here.vent_template['surf_id'] = surf_id
