@@ -100,7 +100,7 @@ def process_pixel(args):
         
         for k in range(7):
             template_here.ramp_template[k]['id'] = ramp_id
-        if ramp_f_f | ramp_s_f == 0:
+        if ramp_f_f or ramp_s_f == 0:
             template_here.ramp_template[1]['t'] = 0
             template_here.ramp_template[2]['t'] = 0
             template_here.ramp_template[2]['f'] = ramp_f_f
@@ -170,7 +170,7 @@ if __name__ == '__main__':
     # Verificar si $SLURM_NTASKS existe
     if 'SLURM_NTASKS' in os.environ:
         # Leer el valor y convertirlo a un entero
-        ntasks = int(os.getenv('ntask'))
+        ntask = int(os.getenv('ntask'))
         print(f"SLURM_NTASKS existe y su valor es: {ntasks}")
     else:
         # Acción alternativa si no existe
