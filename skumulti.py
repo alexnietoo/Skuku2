@@ -100,7 +100,7 @@ def process_pixel(args):
         
         for k in range(7):
             template_here.ramp_template[k]['id'] = ramp_id
-        if HRRPUA_f == 0:
+        if ramp_f_f | ramp_s_f == 0:
             template_here.ramp_template[1]['t'] = 0
             template_here.ramp_template[2]['t'] = 0
             template_here.ramp_template[2]['f'] = ramp_f_f
