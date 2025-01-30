@@ -170,7 +170,7 @@ if __name__ == '__main__':
     # Verificar si $SLURM_NTASKS existe
     if 'SLURM_NTASKS' in os.environ:
         # Leer el valor y convertirlo a un entero
-        ntask = int(os.getenv('ntask'))
+        ntasks = int(os.getenv('ntask'))
         print(f"SLURM_NTASKS existe y su valor es: {ntasks}")
     else:
         # Acción alternativa si no existe
