@@ -80,12 +80,17 @@ def process_pixel(args):
         else:
             HRRPUA_f = round(fre_f/Rf_f * 1.e3 / (residenceT * dx * dy), 10)
 
+        if abs(HRRPUA_f) < 1e-10:  
+            HRRPUA_f = 0
+
         if (burningT - residenceT) * dx * dy <= 0:  
             HRRPUA_s = 0
         else:
             HRRPUA_s = round(fre_s/Rf_s * 1.e3 / ((burningT - residenceT) * dx * dy), 10)
 
-
+        if abs(HRRPUA_s) < 1e-10:  # Evitar valores negativos cercanos a cero
+            HRRPUA_s = 0
+            
         surf_id = f'BURNER_{i}_{j}'
         ramp_id = f'ramp__{i}_{j}'
         
