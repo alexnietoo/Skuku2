@@ -5,5 +5,8 @@ python skumulti.py
 ```
 
 2. FBM to HRR time series
-
+```
+python graficar.py
+```
+    
 ![HRRExample](Img/HRRTimeSerie_example.png)
