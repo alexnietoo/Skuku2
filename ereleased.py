@@ -72,7 +72,7 @@ def plot_from_multiple_files(hrr_csv, devc_csv):
  
     ##################
 
-
+'''
 def E_devc(column_name):
     df = pd.read_csv('./fixed_burner_devc.csv', header = 1)
     time = df.index.values 
@@ -87,7 +87,7 @@ def E_devc(column_name):
     area_total_r = area_total*(25.e-6)
     
     print(f'The Energy recieved at the devc from {column_name} is: {area_total_r:.4f} KJ')
-
+'''
 '''
 def E_domain(column_name):
     df = pd.read_csv('./fixed_burner_hrr.csv', header = 1)
@@ -140,9 +140,9 @@ if __name__ == '__main__':
     np.save("mid_subset.npy",subset)
 
     # Input directory and configuration file
-    inputDir = './' #'/home/alex/Data/FDS/FixedBurner/'
+    inputDir = '/home/alex/Data/FDS/FixedBurner/'
     fileConfigIn = inputDir+'input_fixed_burner.fds'
-    output_file = '~/Src/FdsSkuku/fixed_burner_devc.csv'
+    output_csv = '~/Src/FdsSkuku/fixed_burner_devc.csv'
 
     # Read the .fds file and retrieve SURF, RAMP, and VENT templates
     nml = f90nml.read(fileConfigIn)
@@ -201,7 +201,7 @@ if __name__ == '__main__':
     #Duration change between fires
     v = .1
     w = .5
-
+    for idx, (i,j) in enumerate(zip(*act_pixels)):
     # Recorre todos los elementos del array con un solo loop
     for idx in range(subset.size):
         # Convierte el índice lineal a índices de fila y columna
@@ -274,7 +274,7 @@ if __name__ == '__main__':
     capitalize_ampersand_strings('tmp.fds', inputDir+os.path.basename(fileConfigIn).split('.')[0]+'_withBurner.fds')    
     os.remove('tmp.fds')
 
-    E_devc('HRR')
+    #E_devc('HRR')
     E_domain('HRR')
     ## Llamada a la función para cada columna
     #plot_column('HRR')
