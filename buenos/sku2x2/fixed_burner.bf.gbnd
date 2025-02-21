@@ -1,0 +1,12 @@
+fixed_burner_1_1.bf  -0.000000 145.816803 ! rad
+fixed_burner_1_2.bf  20.000000 20.000000 ! temp
+fixed_burner_1_3.bf  -0.000000 148.174194 ! net
+fixed_burner_2_1.bf  -0.000000 150.718002 ! rad
+fixed_burner_2_2.bf  20.000000 20.000000 ! temp
+fixed_burner_2_3.bf  -0.000000 153.769699 ! net
+fixed_burner_3_1.bf  -0.000000 150.802704 ! rad
+fixed_burner_3_2.bf  20.000000 20.000000 ! temp
+fixed_burner_3_3.bf  -0.000000 153.862198 ! net
+fixed_burner_4_1.bf  -0.000000 147.973404 ! rad
+fixed_burner_4_2.bf  20.000000 20.000000 ! temp
+fixed_burner_4_3.bf  -0.000000 149.303604 ! net

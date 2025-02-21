@@ -1,0 +1,41 @@
+&HEAD CHID='fixed_burner', TITLE='Fixed Burner Simulation' /
+&TIME T_END=35.0 /  ! Simulation runs for 600 seconds
+&MESH IJK=10,10,20, XB=0.0,1.0,0.0,1.0,0.0,2.0, MULT_ID='mesh' /
+&MULT ID='mesh', DX=1.0, DY=1.0, DZ=1.0, I_UPPER=3, J_UPPER=3, K_UPPER=0 /
+
+
+&REAC FUEL='CELLULOSE', C=6, H=10, O=5, SOOT_YIELD=0.001, /
+
+&SURF ID='BURNER_template', COLOR='RED', HRRPUA=1000.0, SPEC_ID='CELLULOSE', RAMP_Q='ramp'/  ! Burner surface properties
+&RAMP ID='ramp', T= 0., F=0. /
+&RAMP ID='ramp', T= .9, F=0. /
+&RAMP ID='ramp', T= 1., F=1. /
+&RAMP ID='ramp', T= 10., F=1./
+&RAMP ID='ramp', T= 11., F=0.5 /
+&RAMP ID='ramp', T= 17., F=0.5 /
+&RAMP ID='ramp', T= 18., F=0. /
+
+&VENT XB=0.3,1.9,0.3,1.9,0.0,0.0, SURF_ID='BURNER_template' /  ! Positioning the burner on the floor
+
+
+&VENT ID='Mesh Vent: Mesh1 [XMAX]', SURF_ID='OPEN', XB=4.0,4.0,0.0,4.0,0.0,2.0/
+&VENT ID='Mesh Vent: Mesh1 [XMIN]', SURF_ID='OPEN', XB=0.0,0.0,0.0,4.0,0.0,2.0/
+&VENT ID='Mesh Vent: Mesh1 [YMAX]', SURF_ID='OPEN', XB=0.0,4.0,4.0,4.0,0.0,2.0/
+&VENT ID='Mesh Vent: Mesh1 [YMIN]', SURF_ID='OPEN', XB=0.0,4.0,0.0,0.0,0.0,2.0/
+&VENT ID='Mesh Vent: Mesh1 [ZMAX]', SURF_ID='OPEN', XB=0.0,4.0,0.0,4.0,2.0,2.0/  
+
+&SLCF QUANTITY='TEMPERATURE', PBY=1.5, VECTOR=.TRUE. /
+&SLCF QUANTITY='VELOCITY', PBY=1.5, VECTOR=.TRUE. /
+
+&SLCF QUANTITY='HRRPUV', PBZ=0.1, /
+&SLCF QUANTITY='HRRPUV', PBY=1.5, /
+&SLCF QUANTITY='TEMPERATURE', PBZ=0.1, /
+&BNDF QUANTITY='RADIATIVE HEAT FLUX' /
+&BNDF QUANTITY='WALL TEMPERATURE' /
+&BNDF QUANTITY='TOTAL HEAT FLUX' /
+
+
+hDEVC ID='HRR', QUANTITY='HRRPUV', XB=1.52,1.57,1.52,1.57,0.01,0.02/
+hDEVC ID='Temp', QUANTITY='TEMPERATURE', XYZ=1.5,1.5,0.01/
+
+&TAIL /

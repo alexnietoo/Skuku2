@@ -1,0 +1,324 @@
+&HEAD
+chid = 'fixed_burner'
+title = 'Fixed Burner Simulation'
+/
+
+&TIME
+t_end = 35.0
+/
+
+&MESH
+ijk = 10, 10, 20
+xb = 0.0, 1.0, 0.0, 1.0, 0.0, 2.0
+mult_id = 'mesh'
+/
+
+&MULT
+id = 'mesh'
+dx = 1.0
+dy = 1.0
+dz = 1.0
+i_upper = 3
+j_upper = 3
+k_upper = 0
+/
+
+&REAC
+fuel = 'CELLULOSE'
+c = 6
+h = 10
+o = 5
+soot_yield = 0.001
+/
+
+&VENT
+id = 'Mesh Vent: Mesh1 [XMAX]'
+surf_id = 'OPEN'
+xb = 4.0, 4.0, 0.0, 4.0, 0.0, 2.0
+/
+
+&VENT
+id = 'Mesh Vent: Mesh1 [XMIN]'
+surf_id = 'OPEN'
+xb = 0.0, 0.0, 0.0, 4.0, 0.0, 2.0
+/
+
+&VENT
+id = 'Mesh Vent: Mesh1 [YMAX]'
+surf_id = 'OPEN'
+xb = 0.0, 4.0, 4.0, 4.0, 0.0, 2.0
+/
+
+&VENT
+id = 'Mesh Vent: Mesh1 [YMIN]'
+surf_id = 'OPEN'
+xb = 0.0, 4.0, 0.0, 0.0, 0.0, 2.0
+/
+
+&VENT
+id = 'Mesh Vent: Mesh1 [ZMAX]'
+surf_id = 'OPEN'
+xb = 0.0, 4.0, 0.0, 4.0, 2.0, 2.0
+/
+
+&SLCF
+quantity = 'TEMPERATURE'
+pby = 1.5
+vector = .true.
+/
+
+&SLCF
+quantity = 'VELOCITY'
+pby = 1.5
+vector = .true.
+/
+
+&SLCF
+quantity = 'HRRPUV'
+pbz = 0.1
+/
+
+&SLCF
+quantity = 'HRRPUV'
+pby = 1.5
+/
+
+&SLCF
+quantity = 'TEMPERATURE'
+pbz = 0.1
+/
+
+&BNDF
+quantity = 'RADIATIVE HEAT FLUX'
+/
+
+&BNDF
+quantity = 'WALL TEMPERATURE'
+/
+
+&BNDF
+quantity = 'TOTAL HEAT FLUX'
+/
+
+&SURF
+id = 'BURNER_1_1'
+color = 'ORANGE'
+hrrpua = 73.6585
+spec_id = 'CELLULOSE'
+ramp_q = 'ramp__1_1'
+/
+
+&RAMP
+id = 'ramp__1_1'
+t = 0.0
+f = 0.0
+/
+
+&RAMP
+id = 'ramp__1_1'
+t = 4.5
+f = 0.0
+/
+
+&RAMP
+id = 'ramp__1_1'
+t = 5.0
+f = 1.0
+/
+
+&RAMP
+id = 'ramp__1_1'
+t = 15.0
+f = 1.0
+/
+
+&RAMP
+id = 'ramp__1_1'
+t = 15.1
+f = 0.03846535023113422
+/
+
+&RAMP
+id = 'ramp__1_1'
+t = 30.0
+f = 0.03846535023113422
+/
+
+&RAMP
+id = 'ramp__1_1'
+t = 30.1
+f = 0.0
+/
+
+&VENT
+xb = 1.0, 2.0, 1.0, 2.0, 0.0, 0.0
+surf_id = 'BURNER_1_1'
+/
+
+&SURF
+id = 'BURNER_1_2'
+color = 'RED'
+hrrpua = 48.7805
+spec_id = 'CELLULOSE'
+ramp_q = 'ramp__1_2'
+/
+
+&RAMP
+id = 'ramp__1_2'
+t = 0.0
+f = 0.0
+/
+
+&RAMP
+id = 'ramp__1_2'
+t = 4.5
+f = 0.0
+/
+
+&RAMP
+id = 'ramp__1_2'
+t = 5.0
+f = 1.0
+/
+
+&RAMP
+id = 'ramp__1_2'
+t = 15.0
+f = 1.0
+/
+
+&RAMP
+id = 'ramp__1_2'
+t = 15.1
+f = 0.05808263547934112
+/
+
+&RAMP
+id = 'ramp__1_2'
+t = 30.0
+f = 0.05808263547934112
+/
+
+&RAMP
+id = 'ramp__1_2'
+t = 30.1
+f = 0.0
+/
+
+&VENT
+xb = 1.0, 2.0, 2.0, 3.0, 0.0, 0.0
+surf_id = 'BURNER_1_2'
+/
+
+&SURF
+id = 'BURNER_2_1'
+color = 'BLUE'
+hrrpua = 29.7561
+spec_id = 'CELLULOSE'
+ramp_q = 'ramp__2_1'
+/
+
+&RAMP
+id = 'ramp__2_1'
+t = 0.0
+f = 0.0
+/
+
+&RAMP
+id = 'ramp__2_1'
+t = 4.5
+f = 0.0
+/
+
+&RAMP
+id = 'ramp__2_1'
+t = 5.0
+f = 1.0
+/
+
+&RAMP
+id = 'ramp__2_1'
+t = 15.0
+f = 1.0
+/
+
+&RAMP
+id = 'ramp__2_1'
+t = 15.1
+f = 0.09521745121168433
+/
+
+&RAMP
+id = 'ramp__2_1'
+t = 30.0
+f = 0.09521745121168433
+/
+
+&RAMP
+id = 'ramp__2_1'
+t = 30.1
+f = 0.0
+/
+
+&VENT
+xb = 2.0, 3.0, 1.0, 2.0, 0.0, 0.0
+surf_id = 'BURNER_2_1'
+/
+
+&SURF
+id = 'BURNER_2_2'
+color = 'GREEN'
+hrrpua = 24.878
+spec_id = 'CELLULOSE'
+ramp_q = 'ramp__2_2'
+/
+
+&RAMP
+id = 'ramp__2_2'
+t = 0.0
+f = 0.0
+/
+
+&RAMP
+id = 'ramp__2_2'
+t = 4.5
+f = 0.0
+/
+
+&RAMP
+id = 'ramp__2_2'
+t = 5.0
+f = 1.0
+/
+
+&RAMP
+id = 'ramp__2_2'
+t = 15.0
+f = 1.0
+/
+
+&RAMP
+id = 'ramp__2_2'
+t = 15.1
+f = 0.11388777232896535
+/
+
+&RAMP
+id = 'ramp__2_2'
+t = 30.0
+f = 0.11388777232896535
+/
+
+&RAMP
+id = 'ramp__2_2'
+t = 30.1
+f = 0.0
+/
+
+&VENT
+xb = 2.0, 3.0, 2.0, 3.0, 0.0, 0.0
+surf_id = 'BURNER_2_2'
+/
+
+&TAIL
+/
