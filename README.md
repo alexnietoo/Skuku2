@@ -6,4 +6,4 @@ python skumulti.py
 
 2. FBM to HRR time series
 
-![HRRExample]('./Img/HRRTimeSerie_example.png')
+![HRRExample](Img/HRRTimeSerie_example.png)
